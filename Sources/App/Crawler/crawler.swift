@@ -17,4 +17,13 @@ import MongoSwift
 public func crawl(_ app: Application) {
     print("crawl \(app)")
 
+    let response = Idealista.resolve(in: app)
+
+    response?.do { string in
+        print(string) // The actual String
+    }.catch { error in
+        print(error) // A Swift Error
+    }
+
+//    print(response)
 }
