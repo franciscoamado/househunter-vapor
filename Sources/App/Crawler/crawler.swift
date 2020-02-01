@@ -19,6 +19,10 @@ public func crawl(_ app: Application) {
 
     let response = Idealista.resolve(in: app)
 
+    let db = try? app.make(MongoDatabase.self)
+    let collection = db?.collection("houses", withType: House.self)
+    print(db)
+    print(collection)
     response?.do { string in
         print(string) // The actual String
     }.catch { error in

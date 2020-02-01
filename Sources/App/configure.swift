@@ -1,5 +1,8 @@
 //import FluentSQLite
+import MongoSwift
 import Vapor
+
+extension MongoDatabase: Service {}
 
 /// Called before your application initializes.
 public func configure(_ config: inout Config, _ env: inout Environment, _ services: inout Services) throws {
@@ -17,6 +20,11 @@ public func configure(_ config: inout Config, _ env: inout Environment, _ servic
     middlewares.use(ErrorMiddleware.self) // Catches errors and converts to HTTP response
     services.register(middlewares)
 
+    // Configure a Mongo database
+    let mongoDB = try MongoClient().db("HouseHunter")
+
+    // Register the configured database to the database config.
+    services.register(mongoDB, as: MongoDatabase.self)
 
 //    databases.add(as: , database: .sqlite)
 //    databases.add(database: sqlite, as: .sqlite)
