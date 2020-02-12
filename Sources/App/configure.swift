@@ -6,6 +6,14 @@ extension MongoDatabase: Service {}
 
 /// Called before your application initializes.
 public func configure(_ config: inout Config, _ env: inout Environment, _ services: inout Services) throws {
+
+    /// Create HTTP Decoder
+//    var httpDecoder = HTTPDecoder()
+//    /// Register decoder and content config
+//    var contentConfig = ContentConfig.default()
+//    contentConfig.use(dataDecoder: httpDecoder, for: .html)
+//    services.register(contentConfig)
+
     // Register providers first
 //    try services.register(FluentSQLiteProvider())
 
