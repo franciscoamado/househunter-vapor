@@ -41,8 +41,10 @@ extension Provider {
             return doc
         }.map { document -> [House] in
             typealias Item = (title: String, href: String)
-            let articles = document?.xpath(listx)
-            let houses: [House] = articles?.compactMap(self.resolve) ?? []
+            guard let articles = document?.xpath(listx) else { return [] }
+            print("articles \(articles.count)")
+            let houses: [House] = articles.compactMap { self.resolve(element: $0) } ?? []
+            print("houses \(articles)")
             return houses
         }
     }
