@@ -5,6 +5,7 @@
 //  Created by Francisco Amado on 18/12/2019.
 //
 
+import Foundation
 import Kanna
 
 class Idealista: Provider {

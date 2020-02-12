@@ -17,23 +17,20 @@ class Data {
     func saveAndDiff(_ elements: [House]) -> [House] {
         print("\(#function)")
 
-        guard let pointer = results.first else {
+        guard results.isEmpty == false, elements.isEmpty == false else {
 
             results += elements
-            return Array(elements.prefix(upTo: 10))
-        }
-
-        if pointer == elements.first {
-
             return []
-
-        } else {
-
-            let diff = Array(elements.prefix(upTo: elements.index(of: pointer) ?? 10))
-            results += diff
-
-            return diff
         }
+
+        let diff = elements.filter { results.contains($0) == false }
+
+        print("diff \(diff.count)")
+
+        guard diff.isEmpty == false else { return [] }
+
+        results += diff
+        return diff
     }
 
     class func save(_ elements: [House], in app: Application) {
