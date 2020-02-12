@@ -1,5 +1,5 @@
 //import FluentSQLite
-import MongoSwift
+// import MongoSwift
 import Vapor
 
 extension MongoDatabase: Service {}
@@ -29,10 +29,10 @@ public func configure(_ config: inout Config, _ env: inout Environment, _ servic
     services.register(middlewares)
 
     // Configure a Mongo database
-    let mongoDB = try MongoClient().db("HouseHunter")
+    // let mongoDB = try MongoClient().db("HouseHunter")
 
     // Register the configured database to the database config.
-    services.register(mongoDB, as: MongoDatabase.self)
+    // services.register(mongoDB, as: MongoDatabase.self)
 
 //    databases.add(as: , database: .sqlite)
 //    databases.add(database: sqlite, as: .sqlite)

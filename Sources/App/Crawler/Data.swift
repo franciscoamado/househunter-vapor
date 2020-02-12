@@ -6,7 +6,7 @@
 //
 
 import Vapor
-import MongoSwift
+// import MongoSwift
 
 class Data {
 
@@ -33,58 +33,54 @@ class Data {
         return diff
     }
 
-    class func save(_ elements: [House], in app: Application) {
+//     class func save(_ elements: [House], in app: Application) {
 
-        let db = try? app.make(MongoDatabase.self)
-        let collection: MongoCollection<House>? = db?.collection("houses", withType: House.self)
-//        print("DB \(db)"); print("Collection \(collection)")
+//         let db = try? app.make(MongoDatabase.self)
+//         let collection: MongoCollection<House>? = db?.collection("houses", withType: House.self)
+// //        print("DB \(db)"); print("Collection \(collection)")
 
-//        let cursor = collection?.)
-    }
+// //        let cursor = collection?.)
+//     }
 
-    class func saveAndDiff(_ elements: [House], in app: Application) -> [House] {
-        print("\(#function)")
+//     class func saveAndDiff(_ elements: [House], in app: Application) -> [House] {
+//         print("\(#function)")
 
-        let db = try? app.make(MongoDatabase.self)
+//         let db = try? app.make(MongoDatabase.self)
 
-        guard let collection: MongoCollection<House> = db?.collection("houses", withType: House.self)
-            else { return [] }
+//         guard let collection: MongoCollection<House> = db?.collection("houses", withType: House.self)
+//             else { return [] }
 
-        defer { save(elements, in: collection) }
+//         defer { save(elements, in: collection) }
 
-        guard let cursor = try? collection.find(options: .init(limit: Int64(elements.count))),
-            cursor.isAlive == true
-            else { return [] }
+//         guard let cursor = try? collection.find(options: .init(limit: Int64(elements.count))),
+//             cursor.isAlive == true
+//             else { return [] }
 
-        let results: [House] = Array(cursor)
+//         let results: [House] = Array(cursor)
 
-        guard let pointer = results.first
-            else { return [] }
+//         guard let pointer = results.first
+//             else { return [] }
 
-        if pointer == elements.first {
+//         if pointer == elements.first {
 
-            return []
+//             return []
 
-        } else {
+//         } else {
 
-            let limit = elements.index(of: pointer) ?? elements.count
+//             let limit = elements.index(of: pointer) ?? elements.count
 
-            return Array(elements.prefix(upTo: limit))
-        }
-    }
+//             return Array(elements.prefix(upTo: limit))
+//         }
+//     }
 
-//    class func save<T: MongoItem>(_ elements: [T], in app: Application) {
-//
-//        let db = try? app.make(MongoDatabase.self)
-//        let collection = db?.collection(T.collection, withType: T.self)
-//    }
+// //    class func save<T: MongoItem>(_ elements: [T], in app: Application) {
+// //
+// //        let db = try? app.make(MongoDatabase.self)
+// //        let collection = db?.collection(T.collection, withType: T.self)
+// //    }
 
-    class func save(_ elements: [House], in collection: MongoCollection<House>) {
-        print("\(#function)")
-        _ = try? collection.insertMany(elements)
-    }
-}
-
-extension MongoCursor {
-    
+//     class func save(_ elements: [House], in collection: MongoCollection<House>) {
+//         print("\(#function)")
+//         _ = try? collection.insertMany(elements)
+//     }
 }
