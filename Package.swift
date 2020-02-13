@@ -19,11 +19,9 @@ let package = Package(
         // .package(url: "https://github.com/mongodb/mongo-swift-driver.git", .upToNextMajor(from: "0.2.0")),
         // 🖌
         .package(url: "https://github.com/tid-kijyun/Kanna.git", .upToNextMajor(from: "5.0.0")),
-        // 🏖
-        .package(url: "https://github.com/mxcl/PromiseKit", .upToNextMajor(from: "6.10.0")),
     ],
     targets: [
-        .target(name: "App", dependencies: ["NIO", "Vapor", "Kanna", "PromiseKit"]),
+        .target(name: "App", dependencies: ["NIO", "Vapor", "Kanna"]),
         .target(name: "Run", dependencies: ["App"]),
         .testTarget(name: "AppTests", dependencies: ["App"])
     ]
