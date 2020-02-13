@@ -33,9 +33,6 @@ class Reporter {
             report(text, in: app)
         }
     }
-}
-
-private extension Reporter {
 
     class func report(_ text: String, in app: Application) {
 
