@@ -36,13 +36,14 @@ class Reporter {
 
     class func report(_ text: String, in app: Application) {
 
-           guard let sendMessageURL = self.sendMessageURL
+           guard let sendMessageURL = self.sendMessageURL,
+                let chatId = Environment.get("CHAT_ID")
                else { return }
 
            _ = try? app.client().get(sendMessageURL) { get in
 
                try get.query.encode([
-                   "chat_id": "-1001423528969",
+                   "chat_id": chatId,
                    "text": text,
                    "parse_mode":"Markdown"])
 
