@@ -25,7 +25,7 @@ A Telegram Bot, built with Vapor, for crawling house renting websites.
 - Create a file `.env` in the root folder of the project with your credentials:
 
 ```
-TOKEN=1080325650:<api_token>
+TOKEN=<api_token>
 CHAT_ID=<chat_id>
 ```
 
