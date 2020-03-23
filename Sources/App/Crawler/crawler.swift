@@ -2,17 +2,10 @@
 //  crawler.swift
 //  App
 //
-//  Created by Francisco Amado on 30/11/2019.
-//
 
 import Vapor
 import Foundation
 import NIO
-// import MongoSwift
-
-//public func crawl(_ task: RepeatedTask) {
-//    print("crawl \(task)")
-//}
 
 public func crawl(_ app: Application) {
     print("crawl \(app)")
@@ -33,16 +26,6 @@ public func crawl(_ app: Application) {
 //        print(response.http.body)
 //    }
 
-// Idealista
-//    _ = Idealista.resolve(in: app)?.map { houses in
-//
-//        return Data.shared.saveAndDiff(houses)
-//
-//    }.do { houses in
-//
-//        Reporter.update(houses, in: app)
-//    }
-
     guard let idealista = Idealista.resolve(in: app),
         let imovirtual = Imovirtual.resolve(in: app)
         else {
@@ -50,16 +33,8 @@ public func crawl(_ app: Application) {
             return
     }
 
-    idealista.and(imovirtual)
+    _ = idealista.and(imovirtual)
         .map { [$0, $1].joined().map { $0 } }
         .map { Data.shared.saveAndDiff($0) }
         .do { Reporter.update($0, in: app) }
-
-//    response?.do { string in
-//        print(string) // The actual String
-//    }.catch { error in
-//        print(error) // A Swift Error
-//    }
-
-//    print(response)
 }

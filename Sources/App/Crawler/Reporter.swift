@@ -2,8 +2,6 @@
 //  Reporter.swift
 //  App
 //
-//  Created by Francisco Amado on 05/02/2020.
-//
 
 import Vapor
 
@@ -25,7 +23,7 @@ class Reporter {
 
         guard elements.count > 0 else { return }
 
-        report("*Latest Houses in Porto*", in: app)
+        report("*Latest Houses*", in: app)
 
         elements.forEach {
 
@@ -54,7 +52,7 @@ class Reporter {
        }
 
     class func content(from elements: [House]) -> String {
-        return (["*Latest Houses in Porto*"] + elements.map(content)).joined(separator: "\n\n")
+        return (["*Latest Houses*"] + elements.map(content)).joined(separator: "\n\n")
     }
 
     class func content(from element: House) -> String {

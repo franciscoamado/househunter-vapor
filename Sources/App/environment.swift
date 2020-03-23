@@ -2,8 +2,6 @@
 //  environment.swift
 //  App
 //
-//  Created by Francisco Amado on 05/02/2020.
-//
 
 import Foundation
 import Service

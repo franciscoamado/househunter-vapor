@@ -2,8 +2,6 @@
 //  House.swift
 //  App
 //
-//  Created by Francisco Amado on 01/02/2020.
-//
 
 import Vapor
 

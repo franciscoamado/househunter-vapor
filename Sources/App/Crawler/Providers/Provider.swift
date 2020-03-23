@@ -2,8 +2,6 @@
 //  Provider.swift
 //  App
 //
-//  Created by Francisco Amado on 18/12/2019.
-//
 
 import Async
 import Vapor
@@ -37,13 +35,13 @@ extension Provider {
         }.map { content -> HTMLDocument? in
             guard let data = content.data else { return nil }
             let doc = try? HTML(html: data, encoding: .utf8)
-            print(doc?.title)
+            print(doc?.title ?? "")
             return doc
         }.map { document -> [House] in
             typealias Item = (title: String, href: String)
             guard let articles = document?.xpath(listx) else { return [] }
             print("articles \(articles.count)")
-            let houses: [House] = articles.compactMap { self.resolve(element: $0) } ?? []
+            let houses: [House] = articles.compactMap { self.resolve(element: $0) }
             print("houses \(articles)")
             return houses
         }
