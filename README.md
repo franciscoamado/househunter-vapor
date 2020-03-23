@@ -41,6 +41,12 @@ These are the biggest in my current country but you can add more easily since th
 
 For adjusting to your search you can modify the `searchURL` of each Provider to your custom search. (You can do this easily by picking your variables in the actual providers site and paste the result URL)
 
+## Running
+
+After customizing to your needs, you can run it with
+
+`vapor build ; vapor run`
+
 ## Deploying
 
 I've tried deploying this to a Heroku machine. 
