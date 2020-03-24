@@ -5,6 +5,10 @@ A Telegram Bot, built with Vapor, for crawling house renting websites.
     House hunting isn't that fun, or easy. 
     Making it a Telegram bot help me and my SO keep a close attention to recent listings, discuss and share possible rentals.
 
+Example:
+
+<img src=".github/img/screenshot.PNG" alt="example" width="250"/>
+
 ## Pre-requisites
 
 1. Install [Vapor](https://docs.vapor.codes/3.0/install/macos/)
